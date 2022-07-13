@@ -9,8 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List (contacts){ contact in
+                NavigationLink(destination: DetailView(contact: contact)) {
+                    ContactRow(contact: contact)
+                }
+            }
+            .navigationBarTitle("Contacts")
+        }
     }
 }
 
